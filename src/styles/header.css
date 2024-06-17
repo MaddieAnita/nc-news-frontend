@@ -1,0 +1,19 @@
+header {
+  background-color: lightcyan;
+  padding: 20px 30px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .container .nav-details {
+  display: flex;
+  gap: 30px;
+}
+
+header .container .nav-details nav a {
+  margin: 20px;
+  text-decoration: none;
+}
