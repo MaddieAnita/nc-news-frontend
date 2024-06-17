@@ -4,9 +4,16 @@ import PropTypes from "prop-types";
 import { getArticles } from "../../api";
 import ArticleList from "./ArticleList";
 import Pagination from "./Pagination";
+import PageDisplaying from "./PageDisplaying";
 
-const Home = ({ articles, setArticles }) => {
-  const [page, setPage] = useState(1);
+const Home = ({
+  articles,
+  setArticles,
+  articlesDisplaying,
+  setArticlesDisplaying,
+  page,
+  setPage,
+}) => {
   const [totalCount, setTotalCount] = useState();
 
   useEffect(() => {
@@ -26,8 +33,17 @@ const Home = ({ articles, setArticles }) => {
       </section>
       <SearchBar />
       <section className="container articles-container">
+        <PageDisplaying
+          articlesDisplaying={articlesDisplaying}
+          totalCount={totalCount}
+        />
         <ArticleList articles={articles} />
-        <Pagination page={page} setPage={setPage} totalCount={totalCount} />
+        <Pagination
+          page={page}
+          setPage={setPage}
+          totalCount={totalCount}
+          setArticlesDisplaying={setArticlesDisplaying}
+        />
       </section>
     </main>
   );
@@ -36,6 +52,10 @@ const Home = ({ articles, setArticles }) => {
 Home.propTypes = {
   articles: PropTypes.array,
   setArticles: PropTypes.func,
+  articlesDisplaying: PropTypes.object,
+  setArticlesDisplaying: PropTypes.func,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
 };
 
 export default Home;
