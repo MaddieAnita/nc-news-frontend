@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SingleArticle from "./components/SingleArticle";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -31,6 +32,7 @@ function App() {
           }
         />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

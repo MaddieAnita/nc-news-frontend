@@ -17,6 +17,7 @@ export const getArticles = (page) => {
     })
     .catch((err) => {
       console.log(err);
+      return Promise.reject(err);
     });
 };
 
@@ -28,6 +29,7 @@ export const getSingleArticle = (article_id) => {
     })
     .catch((err) => {
       console.log(err);
+      return Promise.reject(err);
     });
 };
 
@@ -41,5 +43,6 @@ export const getArticleComments = (article_id, page) => {
     })
     .catch((err) => {
       console.log(err);
+      return Promise.reject(err);
     });
 };

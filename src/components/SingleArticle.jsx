@@ -5,20 +5,30 @@ import "../styles/single-article.css";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
 import CommentList from "./CommentList";
+import ErrorComponent from "./ErrorComponent";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
+  const [error, setError] = useState(null);
   let navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
-    getSingleArticle(article_id).then(({ article }) => {
-      setSingleArticle(article);
-      setIsLoading(false);
-    });
+    getSingleArticle(article_id)
+      .then(({ article }) => {
+        setSingleArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [article_id]);
+
+  if (error) {
+    return <ErrorComponent error={error} />;
+  }
   return (
     <main className="container single-article">
       {isLoading ? (
