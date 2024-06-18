@@ -52,6 +52,18 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.pagination {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin: 30px;
+}
+
+.pagination button:disabled {
+  background-color: grey;
+}
+
 /* 
 @media (prefers-color-scheme: dark) {
   :root {
