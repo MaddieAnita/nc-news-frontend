@@ -5,12 +5,14 @@ import Loading from "./Loading";
 import CommentCard from "./CommentCard";
 import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
+import ErrorComponent from "./ErrorComponent";
 
 const CommentList = ({ article_id }) => {
   const [commentsList, setCommentsList] = useState();
   const [totalCount, setTotalCount] = useState("");
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
   const [commentPage, setCommentPage] = useState(1);
+  const [error, setError] = useState(null);
   const [commentsDisplaying, setCommentsDisplaying] = useState({
     start: 1,
     end: 5,
@@ -18,14 +20,20 @@ const CommentList = ({ article_id }) => {
 
   useEffect(() => {
     setIsCommentsLoading(true);
-    getArticleComments(article_id, commentPage).then(
-      ({ articleComments, total_count }) => {
+    getArticleComments(article_id, commentPage)
+      .then(({ articleComments, total_count }) => {
         setTotalCount(total_count);
         setCommentsList(articleComments);
         setIsCommentsLoading(false);
-      }
-    );
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [article_id, commentPage]);
+
+  if (error) {
+    return <ErrorComponent error={error} />;
+  }
 
   return (
     <section className="comment-list">

@@ -6,6 +6,7 @@ import ArticleList from "./ArticleList";
 import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
 import Loading from "./Loading";
+import ErrorComponent from "./ErrorComponent";
 
 const Home = ({
   articles,
@@ -17,15 +18,24 @@ const Home = ({
 }) => {
   const [totalCount, setTotalCount] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(page).then(({ articles, total_count }) => {
-      setTotalCount(total_count);
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    getArticles(page)
+      .then(({ articles, total_count }) => {
+        setTotalCount(total_count);
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [page]);
+
+  if (error) {
+    return <ErrorComponent error={error} />;
+  }
 
   return (
     <main>

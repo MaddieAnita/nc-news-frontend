@@ -1,0 +1,16 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  gap: 30px;
+}
+
+.error a {
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: orange;
+  border-radius: 20px;
+  color: black;
+}
