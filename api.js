@@ -33,6 +33,29 @@ export const getSingleArticle = (article_id) => {
     });
 };
 
+export const increaseArticleVotes = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
+    });
+};
+export const decreaseArticleVotes = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
+    });
+};
+
 export const getArticleComments = (article_id, page) => {
   return newsApi
     .get(`/articles/${article_id}/comments`, {

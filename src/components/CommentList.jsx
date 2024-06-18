@@ -37,6 +37,7 @@ const CommentList = ({ article_id }) => {
 
   return (
     <section className="comment-list">
+      <h2>Comments</h2>
       {isCommentsLoading ? (
         <Loading />
       ) : (
