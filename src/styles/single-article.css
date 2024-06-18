@@ -1,0 +1,29 @@
+.single-article .article-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-article .article-top .topic {
+  padding: 10px 30px;
+  margin: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+}
+
+.single-article article {
+  margin: auto;
+  text-align: center;
+}
+
+.single-article article h1 {
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.single-article article .article-details {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}

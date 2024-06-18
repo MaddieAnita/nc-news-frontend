@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
   return (
@@ -10,7 +11,12 @@ const ArticleCard = ({ article }) => {
           <h3>{article.title}</h3>
         </div>
       </div>
-      <button className="more-button">Read More</button>
+      <Link
+        to={`/articles/${article.article_id}`}
+        className="button more-button"
+      >
+        Read More
+      </Link>
     </article>
   );
 };

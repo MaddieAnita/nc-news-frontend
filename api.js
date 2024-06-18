@@ -19,3 +19,14 @@ export const getArticles = (page) => {
       console.log(err);
     });
 };
+
+export const getSingleArticle = (article_id) => {
+  return newsApi
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
