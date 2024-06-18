@@ -30,17 +30,6 @@
   margin: 20px;
 }
 
-.articles-container .pagination {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  margin: 30px;
-}
-
-.articles-container .pagination button:disabled {
-  background-color: grey;
-}
-
 @media only screen and (max-width: 850px) {
   .articles-list article {
     width: 46%;

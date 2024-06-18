@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 
-const Pagination = ({ page, setPage, totalCount, setArticlesDisplaying }) => {
+const Pagination = ({ page, setPage, totalCount, setDisplaying, limit }) => {
   return (
     <div className="pagination">
       <button
         onClick={() => {
           setPage((currentPage) => currentPage - 1);
-          setArticlesDisplaying((currentlyDisplaying) => {
+          setDisplaying((currentlyDisplaying) => {
             return {
               ...currentlyDisplaying,
-              start: currentlyDisplaying.start - 9,
+              start: currentlyDisplaying.start - limit,
               end:
                 totalCount === currentlyDisplaying.end
-                  ? totalCount - 1
-                  : currentlyDisplaying.end - 9,
+                  ? totalCount - (totalCount - limit)
+                  : currentlyDisplaying.end - limit,
             };
           });
         }}
@@ -24,18 +24,18 @@ const Pagination = ({ page, setPage, totalCount, setArticlesDisplaying }) => {
       <button
         onClick={() => {
           setPage((currentPage) => currentPage + 1);
-          setArticlesDisplaying((currentlyDisplaying) => {
+          setDisplaying((currentlyDisplaying) => {
             return {
               ...currentlyDisplaying,
-              start: currentlyDisplaying.start + 9,
+              start: currentlyDisplaying.start + limit,
               end:
-                totalCount < currentlyDisplaying.end + 9
+                totalCount < currentlyDisplaying.end + limit
                   ? totalCount
-                  : currentlyDisplaying.end + 9,
+                  : currentlyDisplaying.end + limit,
             };
           });
         }}
-        disabled={9 * page >= totalCount}
+        disabled={limit * page >= totalCount}
       >
         Next Page
       </button>
@@ -47,7 +47,8 @@ Pagination.propTypes = {
   page: PropTypes.number,
   setPage: PropTypes.func,
   totalCount: PropTypes.string,
-  setArticlesDisplaying: PropTypes.func,
+  setDisplaying: PropTypes.func,
+  limit: PropTypes.number,
 };
 
 export default Pagination;

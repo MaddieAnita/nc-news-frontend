@@ -27,3 +27,22 @@
   gap: 30px;
   justify-content: center;
 }
+.single-article .comment-list {
+  border: 1px solid blue;
+  margin: 20px 10px;
+}
+.single-article .comment-list article {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 20px;
+  text-align: left;
+}
+
+.single-article .comment-list article .comment-details {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid green;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-weight: 900;
+}

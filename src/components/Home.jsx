@@ -42,7 +42,7 @@ const Home = ({
           <SearchBar />
           <section className="container articles-container">
             <PageDisplaying
-              articlesDisplaying={articlesDisplaying}
+              displaying={articlesDisplaying}
               totalCount={totalCount}
             />
             <ArticleList articles={articles} />
@@ -50,7 +50,8 @@ const Home = ({
               page={page}
               setPage={setPage}
               totalCount={totalCount}
-              setArticlesDisplaying={setArticlesDisplaying}
+              setDisplaying={setArticlesDisplaying}
+              limit={9}
             />
           </section>
         </Fragment>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "../styles/single-article.css";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
+import CommentList from "./CommentList";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState([]);
@@ -40,6 +41,7 @@ const SingleArticle = () => {
               <p>{singleArticle.body}</p>
             </div>
           </article>
+          <CommentList article_id={article_id} />
         </Fragment>
       )}
     </main>

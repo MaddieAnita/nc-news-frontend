@@ -30,3 +30,16 @@ export const getSingleArticle = (article_id) => {
       console.log(err);
     });
 };
+
+export const getArticleComments = (article_id, page) => {
+  return newsApi
+    .get(`/articles/${article_id}/comments`, {
+      params: { page: page, limit: 5 },
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

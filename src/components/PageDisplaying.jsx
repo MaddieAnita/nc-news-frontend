@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
-const PageDisplaying = ({ articlesDisplaying, totalCount }) => {
+const PageDisplaying = ({ displaying, totalCount }) => {
   return (
     <p>
-      Currently Displaying: {articlesDisplaying.start} to{" "}
-      {articlesDisplaying.end} out of {totalCount}
+      Currently Displaying: {displaying.start} to {displaying.end} out of{" "}
+      {totalCount}
     </p>
   );
 };
 
 PageDisplaying.propTypes = {
-  articlesDisplaying: PropTypes.object,
+  displaying: PropTypes.object,
   totalCount: PropTypes.string,
 };
 
