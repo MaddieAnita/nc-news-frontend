@@ -7,7 +7,7 @@ import {
   IoHeartDislikeOutline,
 } from "react-icons/io5";
 import { decreaseArticleVotes, increaseArticleVotes } from "../../api";
-import ErrorComponent from "./ErrorComponent";
+import ErrorSmallComponent from "./ErrorSmallComponent";
 
 const UpdateVotes = ({ votes, setVotes, article_id }) => {
   const [loveToggle, setLoveToggle] = useState(false);
@@ -32,12 +32,14 @@ const UpdateVotes = ({ votes, setVotes, article_id }) => {
     setLoveToggle(false);
   };
 
-  if (error) {
-    return <ErrorComponent error={error} />;
-  }
-
   return (
     <section className="update-votes">
+      {error ? (
+        <ErrorSmallComponent
+          error={error}
+          message="Something went wrong please try again"
+        />
+      ) : null}
       <p>Current Votes: {votes}</p>
       <div className="controls">
         <button className="votes-box" onClick={handleLoveClick}>

@@ -7,8 +7,7 @@ import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
 import ErrorComponent from "./ErrorComponent";
 
-const CommentList = ({ article_id }) => {
-  const [commentsList, setCommentsList] = useState();
+const CommentList = ({ article_id, commentsList, setCommentsList }) => {
   const [totalCount, setTotalCount] = useState("");
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
   const [commentPage, setCommentPage] = useState(1);
@@ -64,7 +63,8 @@ const CommentList = ({ article_id }) => {
 
 CommentList.propTypes = {
   article_id: PropTypes.string,
-  setIsLoading: PropTypes.func,
+  commentsList: PropTypes.array,
+  setCommentsList: PropTypes.func,
 };
 
 export default CommentList;
