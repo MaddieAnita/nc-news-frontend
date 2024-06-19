@@ -1,5 +1,13 @@
 import PropTypes from "prop-types";
-const CommentCard = ({ comment }) => {
+import CommentDeleter from "./CommentDeleter";
+
+const CommentCard = ({
+  comment,
+  user,
+  setDeleteError,
+  setDeleteSucess,
+  setCommentsList,
+}) => {
   const formatDate = (date) => {
     const newDate = new Date(date);
     const options = {
@@ -12,6 +20,14 @@ const CommentCard = ({ comment }) => {
     <article>
       <div className="comment-content">
         <p>{comment.body}</p>
+        {user.username === comment.author ? (
+          <CommentDeleter
+            comment_id={comment.comment_id}
+            setDeleteSucess={setDeleteSucess}
+            setDeleteError={setDeleteError}
+            setCommentsList={setCommentsList}
+          />
+        ) : null}
       </div>
       <div className="comment-details">
         <p>{comment.author}</p>
@@ -24,6 +40,10 @@ const CommentCard = ({ comment }) => {
 
 CommentCard.propTypes = {
   comment: PropTypes.object,
+  user: PropTypes.object,
+  setDeleteError: PropTypes.func,
+  setDeleteSucess: PropTypes.func,
+  setCommentsList: PropTypes.func,
 };
 
 export default CommentCard;

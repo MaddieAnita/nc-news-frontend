@@ -81,3 +81,15 @@ export const postComment = (article_id, commentBody) => {
       return Promise.reject(err);
     });
 };
+
+export const deleteCommentById = (comment_id) => {
+  return newsApi
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
+    });
+};
