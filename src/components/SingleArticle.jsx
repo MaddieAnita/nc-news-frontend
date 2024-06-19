@@ -1,4 +1,5 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
+import { UserContext } from "../context/User.jsx";
 import { getSingleArticle } from "../../api";
 import { useParams } from "react-router-dom";
 import { IoCalendarClearSharp, IoHeartSharp, IoPerson } from "react-icons/io5";
@@ -17,6 +18,8 @@ const SingleArticle = () => {
   const [commentsList, setCommentsList] = useState();
   const { article_id } = useParams();
   const [error, setError] = useState(null);
+  const { user, setUser } = useContext(UserContext);
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -79,10 +82,12 @@ const SingleArticle = () => {
             article_id={article_id}
             commentsList={commentsList}
             setCommentsList={setCommentsList}
+            user={user}
           />
           <CommentAdder
             article_id={article_id}
             setCommentsList={setCommentsList}
+            user={user}
           />
         </Fragment>
       )}

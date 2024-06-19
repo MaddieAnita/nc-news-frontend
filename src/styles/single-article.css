@@ -87,6 +87,29 @@
   background-color: #fff7f7;
 }
 
+.single-article .comment-list article .comment-content {
+  display: flex;
+  justify-content: space-between;
+}
+.single-article .comment-list article .comment-content button {
+  padding-right: 20px;
+  margin: 0;
+  padding: 5px 8px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+.single-article .comment-list article .comment-content .delete-comment {
+  font-size: 20px;
+}
+.single-article .comment-list article .comment-content button:hover {
+  background-color: red;
+  border: none;
+  transform: scale(1.1);
+}
+.single-article .comment-list article .comment-content button:disabled {
+  background-color: darkgray;
+}
+
 .single-article .comment-list article .comment-details {
   display: flex;
   justify-content: space-between;

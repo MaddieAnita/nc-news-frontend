@@ -1,12 +1,10 @@
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
-import { UserContext } from "../context/User.jsx";
+import { useState } from "react";
 import { postComment } from "../../api.js";
 import ErrorSmallComponent from "./ErrorSmallComponent.jsx";
 import SuccessSmallComponent from "./SuccessSmallComponent.jsx";
 
-const CommentAdder = ({ article_id, setCommentsList }) => {
-  const { user, setUser } = useContext(UserContext);
+const CommentAdder = ({ article_id, setCommentsList, user }) => {
   const [commentInput, setCommentInput] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -66,6 +64,7 @@ const CommentAdder = ({ article_id, setCommentsList }) => {
 CommentAdder.propTypes = {
   article_id: PropTypes.string,
   setCommentsList: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default CommentAdder;

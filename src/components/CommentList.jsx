@@ -6,12 +6,16 @@ import CommentCard from "./CommentCard";
 import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
 import ErrorComponent from "./ErrorComponent";
+import ErrorSmallComponent from "./ErrorSmallComponent.jsx";
+import SuccessSmallComponent from "./SuccessSmallComponent.jsx";
 
-const CommentList = ({ article_id, commentsList, setCommentsList }) => {
+const CommentList = ({ article_id, commentsList, setCommentsList, user }) => {
   const [totalCount, setTotalCount] = useState("");
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
   const [commentPage, setCommentPage] = useState(1);
   const [error, setError] = useState(null);
+  const [deleteError, setDeleteError] = useState(null);
+  const [deleteSuccess, setDeleteSucess] = useState(false);
   const [commentsDisplaying, setCommentsDisplaying] = useState({
     start: 1,
     end: 5,
@@ -37,6 +41,12 @@ const CommentList = ({ article_id, commentsList, setCommentsList }) => {
   return (
     <section className="comment-list">
       <h2>Comments</h2>
+      {deleteError ? (
+        <ErrorSmallComponent message="Oops, that didn't work. Please try again." />
+      ) : null}
+      {deleteSuccess ? (
+        <SuccessSmallComponent message="Comment successfully deleted" />
+      ) : null}
       {isCommentsLoading ? (
         <Loading />
       ) : (
@@ -46,7 +56,16 @@ const CommentList = ({ article_id, commentsList, setCommentsList }) => {
             totalCount={totalCount}
           />
           {commentsList.map((comment) => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+                user={user}
+                setDeleteError={setDeleteError}
+                setDeleteSucess={setDeleteSucess}
+                setCommentsList={setCommentsList}
+              />
+            );
           })}
           <Pagination
             page={commentPage}
@@ -65,6 +84,7 @@ CommentList.propTypes = {
   article_id: PropTypes.string,
   commentsList: PropTypes.array,
   setCommentsList: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default CommentList;
