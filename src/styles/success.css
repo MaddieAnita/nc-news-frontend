@@ -1,0 +1,15 @@
+.success-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  gap: 30px;
+  background-color: lightgreen;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.success-small p {
+  margin: 0;
+}

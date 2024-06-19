@@ -69,3 +69,15 @@ export const getArticleComments = (article_id, page) => {
       return Promise.reject(err);
     });
 };
+
+export const postComment = (article_id, commentBody) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, commentBody)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return Promise.reject(err);
+    });
+};

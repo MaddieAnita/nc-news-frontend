@@ -94,3 +94,32 @@
   margin-top: 20px;
   font-weight: 600;
 }
+
+.single-article .comment-adder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  -webkit-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  margin-bottom: 30px;
+  border-radius: 15px;
+  background-color: #fff7f7;
+}
+.single-article .comment-adder h2,
+p {
+  margin-bottom: 10px;
+}
+.single-article .comment-adder textarea {
+  padding: 10px;
+  background-color: #fff7f7;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.single-article .comment-adder button:disabled {
+  background-color: darkgray;
+}

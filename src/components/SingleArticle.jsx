@@ -8,11 +8,13 @@ import { useNavigate } from "react-router-dom";
 import CommentList from "./CommentList";
 import ErrorComponent from "./ErrorComponent";
 import UpdateVotes from "./UpdateVotes";
+import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [articleVotes, setArticleVotes] = useState(0);
+  const [commentsList, setCommentsList] = useState();
   const { article_id } = useParams();
   const [error, setError] = useState(null);
   let navigate = useNavigate();
@@ -73,7 +75,15 @@ const SingleArticle = () => {
             setVotes={setArticleVotes}
             article_id={article_id}
           />
-          <CommentList article_id={article_id} />
+          <CommentList
+            article_id={article_id}
+            commentsList={commentsList}
+            setCommentsList={setCommentsList}
+          />
+          <CommentAdder
+            article_id={article_id}
+            setCommentsList={setCommentsList}
+          />
         </Fragment>
       )}
     </main>
