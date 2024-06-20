@@ -16,19 +16,19 @@ const UpdateVotes = ({ votes, setVotes, article_id }) => {
 
   const handleLoveClick = () => {
     setLoveToggle(true);
+    setVotes((votes) => votes + 1);
     increaseArticleVotes(article_id).catch((err) => {
       setError(err);
     });
-    setVotes((votes) => votes + 1);
     setHateToggle(false);
   };
 
   const handleHateClick = () => {
     setHateToggle(true);
+    setVotes((votes) => votes - 1);
     decreaseArticleVotes(article_id).catch((err) => {
       setError(err);
     });
-    setVotes((votes) => votes - 1);
     setLoveToggle(false);
   };
 

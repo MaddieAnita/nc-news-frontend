@@ -25,6 +25,7 @@ const CommentDeleter = ({
       })
       .catch((err) => {
         setDeleteError(err);
+        setIsDeleting(false);
       });
   };
 

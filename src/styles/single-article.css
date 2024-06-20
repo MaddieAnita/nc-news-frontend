@@ -90,6 +90,7 @@
 .single-article .comment-list article .comment-content {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 .single-article .comment-list article .comment-content button {
   padding-right: 20px;
