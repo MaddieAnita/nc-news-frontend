@@ -7,12 +7,15 @@ import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
 import Loading from "./Loading";
 import ErrorComponent from "./ErrorComponent";
+import TopicsList from "./TopicsList";
+import "../styles/home.css";
 
 const Home = ({
   articles,
   setArticles,
   articlesDisplaying,
   setArticlesDisplaying,
+  categoriesList,
   page,
   setPage,
 }) => {
@@ -44,7 +47,7 @@ const Home = ({
       ) : (
         <Fragment>
           <section className="container categories-list">
-            <p>CATEGORIES</p>
+            <TopicsList categoriesList={categoriesList} />
           </section>
           <section className="container featured">
             <p>FEATURED</p>
@@ -75,6 +78,8 @@ Home.propTypes = {
   setArticles: PropTypes.func,
   articlesDisplaying: PropTypes.object,
   setArticlesDisplaying: PropTypes.func,
+  categoriesList: PropTypes.array,
+  setCategoriesList: PropTypes.func,
   page: PropTypes.number,
   setPage: PropTypes.func,
 };
