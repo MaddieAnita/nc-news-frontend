@@ -42,7 +42,9 @@
   position: relative;
   vertical-align: bottom;
 }
-
+.single-article article img {
+  max-width: 100%;
+}
 .single-article article .article-body {
   margin: 20px auto;
   text-align: left;
@@ -60,11 +62,11 @@
   background-color: rgb(237, 161, 38);
   margin-bottom: 30px;
   display: flex;
-  font-size: 20px;
+  font-size: 18px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 20px;
+  padding: 8px 30px;
 }
 .single-article .update-votes .votes-box .heart {
   font-size: 30px;

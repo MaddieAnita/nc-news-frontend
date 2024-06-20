@@ -9,9 +9,10 @@
 }
 .topics-container .topics-list a {
   border: none;
+  border-radius: 20px;
+  padding: 7px 30px;
 }
-.topics-container .topics-list a:hover {
-  background-color: orange;
-  color: black;
-  border: none;
+
+.topics-container .topics-list a::first-letter {
+  text-transform: capitalize;
 }

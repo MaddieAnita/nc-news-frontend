@@ -26,7 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header categoriesList={categoriesList} />
+      <Header categoriesList={categoriesList} setPage={setPage} />
       <Routes>
         <Route
           path="/"

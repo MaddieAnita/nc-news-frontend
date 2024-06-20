@@ -50,7 +50,8 @@ const SearchBar = ({ setSearchParams, searchParams }) => {
         <option value="desc">Desc</option>
       </select>
 
-      <label htmlFor="featured">
+      <label htmlFor="featured" className="checkbox-container">
+        Show only featured?
         <input
           type="checkbox"
           id="featured"
@@ -60,7 +61,7 @@ const SearchBar = ({ setSearchParams, searchParams }) => {
             setFeatured(event.target.checked);
           }}
         />
-        Show only featured?
+        <span className="checkmark"></span>
       </label>
     </section>
   );
