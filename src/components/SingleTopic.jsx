@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getArticles } from "../../api";
 import ErrorComponent from "./ErrorComponent";
 import Loading from "./Loading";
@@ -7,6 +7,8 @@ import ArticleCard from "./ArticleCard";
 import Pagination from "./Pagination";
 import PageDisplaying from "./PageDisplaying";
 import PropTypes from "prop-types";
+import SearchBar from "./SearchBar";
+import ErrorSmallComponent from "./ErrorSmallComponent";
 
 const SingleTopic = ({
   articles,
@@ -21,10 +23,20 @@ const SingleTopic = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const getTopicArticles = searchParams.get("topic");
+  const sortByQuery = searchParams.get("sort_by");
+  const orderByQuery = searchParams.get("order");
+  const featuredQuery = searchParams.get("featured");
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(page, getTopicArticles)
+    const props = {
+      page,
+      getTopicArticles,
+      sortByQuery,
+      orderByQuery,
+      featuredQuery,
+    };
+    getArticles(props)
       .then(({ articles, total_count }) => {
         setTotalCount(total_count);
         setArticles(articles);
@@ -33,7 +45,7 @@ const SingleTopic = ({
       .catch((err) => {
         setError(err);
       });
-  }, [page, getTopicArticles]);
+  }, [page, sortByQuery, orderByQuery, featuredQuery]);
 
   if (error) {
     return <ErrorComponent error={error} />;
@@ -41,29 +53,42 @@ const SingleTopic = ({
 
   return (
     <main>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <section className="container">
-          <h1>{getTopicArticles}</h1>
-          <PageDisplaying
-            displaying={articlesDisplaying}
-            totalCount={totalCount}
-          />
-          <div className="articles-list">
-            {articles.map((article) => {
-              return <ArticleCard key={article.article_id} article={article} />;
-            })}
-          </div>
-        </section>
-      )}
-      <Pagination
-        page={page}
-        setPage={setPage}
-        totalCount={totalCount}
-        setDisplaying={setArticlesDisplaying}
-        limit={9}
-      />
+      <section className="container">
+        <h1>{getTopicArticles}</h1>
+        <SearchBar
+          setSearchParams={setSearchParams}
+          searchParams={searchParams}
+        />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <Fragment>
+            <PageDisplaying
+              displaying={articlesDisplaying}
+              totalCount={totalCount}
+            />
+
+            {!articles.length ? (
+              <ErrorSmallComponent message="Not Articles Found" />
+            ) : (
+              <div className="articles-list">
+                {articles.map((article) => {
+                  return (
+                    <ArticleCard key={article.article_id} article={article} />
+                  );
+                })}
+              </div>
+            )}
+          </Fragment>
+        )}
+        <Pagination
+          page={page}
+          setPage={setPage}
+          totalCount={totalCount}
+          setDisplaying={setArticlesDisplaying}
+          limit={9}
+        />
+      </section>
     </main>
   );
 };

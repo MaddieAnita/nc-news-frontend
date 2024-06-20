@@ -4,20 +4,28 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-api-e143.onrender.com/api",
 });
 
-export const getArticles = (page, topic) => {
+export const getArticles = ({
+  page,
+  getTopicArticles,
+  sortByQuery,
+  orderByQuery,
+  featuredQuery,
+}) => {
   return newsApi
     .get("/articles", {
       params: {
         limit: 9,
         page: page,
-        topic: topic,
+        topic: getTopicArticles,
+        sort_by: sortByQuery,
+        order: orderByQuery,
+        featured: featuredQuery,
       },
     })
     .then(({ data }) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -29,7 +37,6 @@ export const getSingleArticle = (article_id) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -41,7 +48,6 @@ export const increaseArticleVotes = (article_id) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -52,7 +58,6 @@ export const decreaseArticleVotes = (article_id) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -66,7 +71,6 @@ export const getArticleComments = (article_id, page) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -78,7 +82,6 @@ export const postComment = (article_id, commentBody) => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -90,7 +93,6 @@ export const deleteCommentById = (comment_id) => {
       return response;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
@@ -102,7 +104,6 @@ export const getTopics = () => {
       return data;
     })
     .catch((err) => {
-      console.log(err);
       return Promise.reject(err);
     });
 };
