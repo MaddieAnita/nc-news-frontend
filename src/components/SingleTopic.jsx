@@ -45,7 +45,7 @@ const SingleTopic = ({
       .catch((err) => {
         setError(err);
       });
-  }, [page, sortByQuery, orderByQuery, featuredQuery]);
+  }, [page, sortByQuery, orderByQuery, featuredQuery, getTopicArticles]);
 
   if (error) {
     return <ErrorComponent error={error} />;

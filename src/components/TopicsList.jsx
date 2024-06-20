@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -11,7 +9,7 @@ const TopicsList = ({ categoriesList }) => {
         {categoriesList.map((topic, index) => {
           return (
             <Link
-              className="button"
+              className="button gradient hover-grow"
               key={index}
               to={`/articles?topic=${topic.slug}`}
             >

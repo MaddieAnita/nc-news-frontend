@@ -50,7 +50,12 @@ const SingleArticle = () => {
       ) : (
         <Fragment>
           <div className="article-top">
-            <button onClick={() => navigate(-1)}>Back</button>
+            <button
+              onClick={() => navigate(-1)}
+              className="gradient hover-grow"
+            >
+              Back
+            </button>
             <p className="topic">Topic: {singleArticle.topic}</p>
           </div>
           <article>

@@ -5,14 +5,14 @@ import { UserContext } from "../context/User.jsx";
 import { useContext } from "react";
 import logo from "/NC-News-Logo.png";
 
-const Header = ({ categoriesList }) => {
+const Header = ({ categoriesList, setPage }) => {
   const { user } = useContext(UserContext);
   return (
     <header>
       <div className="container">
         <img src={logo} className="logo" />
         <div className="nav-details">
-          <NavBar categoriesList={categoriesList} />
+          <NavBar categoriesList={categoriesList} setPage={setPage} />
           <div className="logged-in-user">
             <div
               className="profile-img"
@@ -27,6 +27,7 @@ const Header = ({ categoriesList }) => {
 
 Header.propTypes = {
   categoriesList: PropTypes.array,
+  setPage: PropTypes.func,
 };
 
 export default Header;
