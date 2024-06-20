@@ -7,6 +7,7 @@ import SingleArticle from "./components/SingleArticle";
 import ErrorPage from "./components/ErrorPage";
 import SingleTopic from "./components/SingleTopic";
 import { getTopics } from "../api";
+import Users from "./components/Users";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -56,6 +57,7 @@ function App() {
             />
           }
         />
+        <Route path="/users" element={<Users />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

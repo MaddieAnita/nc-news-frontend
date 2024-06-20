@@ -6,6 +6,12 @@ header {
 header .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+header .container .logo {
+  width: 120px;
+  height: 50px;
 }
 
 header .container .nav-details {
@@ -33,4 +39,22 @@ header .container .nav-details .sub-menu {
   padding: 20px;
   display: flex;
   flex-direction: column;
+}
+
+header .nav-details .logged-in-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .nav-details .logged-in-user .profile-img {
+  width: 50px;
+  background-color: white !important;
+  border-radius: 100px;
+  overflow: hidden;
+  padding: 10px;
+  height: 50px;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
 }

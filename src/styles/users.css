@@ -1,0 +1,62 @@
+.users-page {
+  margin-bottom: 80px;
+}
+
+.users-page .sub-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.users-page .user-list {
+  display: flex;
+  gap: 40px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.users-page .user-list .user-card {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: black;
+}
+.users-page .user-list .user-card:hover {
+  transform: scale(1.1);
+}
+.users-page .user-list .user-card img {
+  max-width: 80%;
+  max-height: 150px;
+}
+.users-page .user-list .user-card p {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 900px) {
+  .users-page .user-list {
+    gap: 20px;
+  }
+  .users-page .user-list .user-card {
+    width: 45%;
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .users-page .user-list {
+    gap: 20px;
+  }
+  .users-page .user-list .user-card {
+    width: 90%;
+    gap: 20px;
+  }
+}
