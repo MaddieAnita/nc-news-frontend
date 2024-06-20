@@ -107,3 +107,14 @@ export const getTopics = () => {
       return Promise.reject(err);
     });
 };
+
+export const getUsers = () => {
+  return newsApi
+    .get("/users")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+};
