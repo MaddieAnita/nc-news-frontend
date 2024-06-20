@@ -1,6 +1,6 @@
 import "../styles/loading.css";
 
-const Loading = () => {
+export const Loading = () => {
   return (
     <div className="loading-box">
       <span className="loader"></span>

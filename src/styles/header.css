@@ -17,3 +17,20 @@ header .container .nav-details nav a {
   margin: 20px;
   text-decoration: none;
 }
+
+header .container .nav-details nav {
+  display: flex;
+}
+
+header .container .nav-details .sub-menu-button {
+  margin: 20px;
+  position: relative;
+}
+header .container .nav-details .sub-menu {
+  position: absolute;
+  top: 60px;
+  background-color: rgb(247, 191, 48);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
