@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { UserContext } from "../context/User.jsx";
 import { useContext } from "react";
 import logo from "/NC-News-Logo.png";
+import { Link } from "react-router-dom";
 
 const Header = ({ categoriesList, setPage }) => {
   const { user } = useContext(UserContext);
@@ -13,12 +14,12 @@ const Header = ({ categoriesList, setPage }) => {
         <img src={logo} className="logo" />
         <div className="nav-details">
           <NavBar categoriesList={categoriesList} setPage={setPage} />
-          <div className="logged-in-user">
+          <Link className="logged-in-user" to={`/profile/${user.username}`}>
             <div
               className="profile-img"
               style={{ background: `url(${user.avatar_url})` }}
             ></div>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

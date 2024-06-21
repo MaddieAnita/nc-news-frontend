@@ -10,6 +10,7 @@ export const getArticles = ({
   sortByQuery,
   orderByQuery,
   featuredQuery,
+  username,
 }) => {
   return newsApi
     .get("/articles", {
@@ -20,6 +21,7 @@ export const getArticles = ({
         sort_by: sortByQuery,
         order: orderByQuery,
         featured: featuredQuery,
+        author: username,
       },
     })
     .then(({ data }) => {
@@ -111,6 +113,17 @@ export const getTopics = () => {
 export const getUsers = () => {
   return newsApi
     .get("/users")
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+};
+
+export const getUserByUsername = (username) => {
+  return newsApi
+    .get(`/users/${username}`)
     .then(({ data }) => {
       return data;
     })

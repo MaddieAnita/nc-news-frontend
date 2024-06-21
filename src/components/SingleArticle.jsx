@@ -18,7 +18,7 @@ const SingleArticle = () => {
   const [commentsList, setCommentsList] = useState();
   const { article_id } = useParams();
   const [error, setError] = useState(null);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   let navigate = useNavigate();
 
@@ -78,11 +78,13 @@ const SingleArticle = () => {
               <p>{singleArticle.body}</p>
             </div>
           </article>
-          <UpdateVotes
-            votes={articleVotes}
-            setVotes={setArticleVotes}
-            article_id={article_id}
-          />
+          {user.username === singleArticle.author ? null : (
+            <UpdateVotes
+              votes={articleVotes}
+              setVotes={setArticleVotes}
+              article_id={article_id}
+            />
+          )}
           <CommentList
             article_id={article_id}
             commentsList={commentsList}
