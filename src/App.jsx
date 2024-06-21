@@ -11,6 +11,7 @@ import Users from "./components/Users";
 import SwitchUsers from "./components/SwitchUsers";
 import SingleUser from "./components/SingleUser";
 import LoggedInUser from "./components/LoggedInUser";
+import AboutPage from "./components/AboutPage";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -64,6 +65,7 @@ function App() {
         <Route path="/users/:username" element={<SingleUser />} />
         <Route path="/profile/:username" element={<LoggedInUser />} />
         <Route path="/profile/switch-users" element={<SwitchUsers />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

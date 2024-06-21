@@ -1,0 +1,16 @@
+.about-page {
+  margin: 40px auto !important;
+}
+.about-page .button {
+  line-height: 4rem;
+}
+
+.about-page h2 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.about-page ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
