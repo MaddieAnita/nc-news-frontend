@@ -8,6 +8,9 @@ import ErrorPage from "./components/ErrorPage";
 import SingleTopic from "./components/SingleTopic";
 import { getTopics } from "../api";
 import Users from "./components/Users";
+import SwitchUsers from "./components/SwitchUsers";
+import SingleUser from "./components/SingleUser";
+import LoggedInUser from "./components/LoggedInUser";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -58,6 +61,9 @@ function App() {
           }
         />
         <Route path="/users" element={<Users />} />
+        <Route path="/users/:username" element={<SingleUser />} />
+        <Route path="/profile/:username" element={<LoggedInUser />} />
+        <Route path="/profile/switch-users" element={<SwitchUsers />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
