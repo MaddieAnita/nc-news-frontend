@@ -102,6 +102,8 @@ const AboutPage = () => {
         </li>
         <li>Refactor authors profile page to showcase new profile abilites</li>
         <li>Enable logged in users to edit their profiles</li>
+        <li>Add better responsive design for mobiles</li>
+        <li>Add Mobile Menu</li>
       </ul>
     </section>
   );

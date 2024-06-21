@@ -30,6 +30,7 @@ const SingleUser = () => {
         const props = {
           page,
           username,
+          limit: 9,
         };
         getArticles(props).then(({ articles, total_count }) => {
           setTotalCount(total_count);

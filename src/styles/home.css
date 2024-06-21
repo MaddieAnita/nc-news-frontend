@@ -16,3 +16,76 @@
 .topics-container .topics-list a::first-letter {
   text-transform: capitalize;
 }
+
+.featured {
+  margin: 40px auto !important;
+}
+.featured h2 {
+  margin-bottom: 20px;
+}
+
+.featured-posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.featured .featured-posts article {
+  width: 30%;
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+  box-shadow: -1px 3px 28px -12px rgba(0, 0, 0, 0.68);
+}
+.featured .featured-posts article a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  height: 100%;
+}
+.featured .featured-posts article img {
+  max-width: 100%;
+}
+
+.featured .featured-posts article .article-details {
+  font-size: 14px;
+  line-height: 1.2rem;
+  padding: 5px 20px;
+}
+.featured .featured-posts article .article-details .topic-tag {
+  display: inline-block;
+  color: rgb(164, 89, 4);
+  background-color: rgb(255, 230, 184);
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin-left: -5px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.featured .featured-posts article .article-details .topic-tag::first-letter {
+  text-transform: capitalize;
+}
+.featured .featured-posts article .more-button {
+  margin: 20px;
+  width: fit-content;
+  border-radius: 50px;
+  padding: 5px 20px;
+}
+
+@media only screen and (max-width: 850px) {
+  .featured .featured-posts article {
+    width: 46%;
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .featured .featured-posts article {
+    width: 100%;
+    gap: 20px;
+  }
+}

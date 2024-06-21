@@ -35,6 +35,7 @@ const SingleTopic = ({
       sortByQuery,
       orderByQuery,
       featuredQuery,
+      limit: 9,
     };
     getArticles(props)
       .then(({ articles, total_count }) => {
