@@ -11,11 +11,12 @@ export const getArticles = ({
   orderByQuery,
   featuredQuery,
   username,
+  limit,
 }) => {
   return newsApi
     .get("/articles", {
       params: {
-        limit: 9,
+        limit: limit,
         page: page,
         topic: getTopicArticles,
         sort_by: sortByQuery,

@@ -11,7 +11,10 @@ const Header = ({ categoriesList, setPage }) => {
   return (
     <header>
       <div className="container">
-        <img src={logo} className="logo" />
+        <Link to="/">
+          {" "}
+          <img src={logo} className="logo" />
+        </Link>
         <div className="nav-details">
           <NavBar categoriesList={categoriesList} setPage={setPage} />
           <Link className="logged-in-user" to={`/profile/${user.username}`}>

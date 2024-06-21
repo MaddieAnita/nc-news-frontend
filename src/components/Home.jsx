@@ -10,6 +10,7 @@ import ErrorComponent from "./ErrorComponent";
 import TopicsList from "./TopicsList";
 import "../styles/home.css";
 import { useSearchParams } from "react-router-dom";
+import FeaturedPosts from "./FeaturedPosts";
 
 const Home = ({
   articles,
@@ -35,6 +36,7 @@ const Home = ({
       sortByQuery,
       orderByQuery,
       featuredQuery,
+      limit: 9,
     };
     getArticles(props)
       .then(({ articles, total_count }) => {
@@ -60,9 +62,9 @@ const Home = ({
           <TopicsList categoriesList={categoriesList} />
         </section>
       )}
-      <section className="container featured">
-        <p>FEATURED</p>
-      </section>
+
+      <FeaturedPosts />
+
       <SearchBar
         setSearchParams={setSearchParams}
         searchParams={searchParams}

@@ -28,6 +28,7 @@ const LoggedInUser = () => {
     const props = {
       page,
       username: user.username,
+      limit: 9,
     };
     getArticles(props)
       .then(({ articles, total_count }) => {
